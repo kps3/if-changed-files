@@ -5,8 +5,7 @@ const minimist = require('minimist');
 const ifChangedFiles = require('../lib/if-changed-files');
 
 const cwd = process.cwd();
-const argv = minimist(process.argv.slice(2));
-const root = argv.root;
+const [root] = process.argv.slice(2);
 
 ifChangedFiles(root)
   .then((changed) => {

@@ -8,4 +8,7 @@ const cwd = process.cwd();
 const argv = minimist(process.argv.slice(2));
 const root = argv.root;
 
-process.exit(ifChangedFiles(root) ? 1 : 0);
+ifChangedFiles(root)
+  .then((changed) => {
+    process.exit(changed ? 0 : 1);
+  });
